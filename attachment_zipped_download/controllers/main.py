@@ -13,7 +13,7 @@ class AttachmentZippedDownloadController(http.Controller):
             return
         list_ids = map(int, ids.split(","))
         out_file = request.env["ir.attachment"].browse(list_ids)._create_temp_zip()
-        stream = http.Stream(
+        stream = http.stream.Stream(
             type="data",
             data=out_file.getvalue(),
             mimetype="application/zip",

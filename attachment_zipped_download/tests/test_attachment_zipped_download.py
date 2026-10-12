@@ -26,6 +26,8 @@ class TestAttachmentZippedDownloadBase(BaseCommon):
 
 
 class TestAttachmentZippedDownload(HttpCase, TestAttachmentZippedDownloadBase):
+    _test_user_groups = None
+
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -42,6 +44,8 @@ class TestAttachmentZippedDownload(HttpCase, TestAttachmentZippedDownloadBase):
 
 
 class TestAttachmentZipped(TestAttachmentZippedDownloadBase):
+    _test_user_groups = None
+
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
