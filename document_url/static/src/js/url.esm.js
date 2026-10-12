@@ -1,17 +1,18 @@
 /** @odoo-module **/
 
 import {AttachmentList} from "@mail/core/common/attachment_list";
+import { usePlugin } from "@odoo/owl";
 import {ConfirmationDialog} from "@web/core/confirmation_dialog/confirmation_dialog";
 import {Chatter} from "@mail/chatter/web_portal/chatter";
 import {patch} from "@web/core/utils/patch";
-import {useService} from "@web/core/utils/hooks";
 import {url} from "@web/core/utils/urls";
 import {_t} from "@web/core/l10n/translation";
+import { ActionManagerPlugin } from "@web/webclient/actions/action_plugin";
 
 patch(Chatter.prototype, {
   setup() {
     super.setup();
-    this.action = useService("action");
+    this.action = usePlugin(ActionManagerPlugin);
   },
   _onAddUrl(event) {
     event.preventDefault();
